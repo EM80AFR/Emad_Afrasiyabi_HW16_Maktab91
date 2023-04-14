@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+
+<!-- =========================================================
+* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+==============================================================
+
+* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+* Created by: ThemeSelection
+* License: You must have a valid license purchased in order to legally use the theme for your project.
+* Copyright ThemeSelection (https://themeselection.com)
+
+=========================================================
+ -->
+<!-- beautify ignore:start -->
+<html lang="fa"
+      class="light-style "
+      dir="rtl"
+      data-theme="theme-default"
+      data-assets-path="../assets/"
+      data-template="vertical-menu-template-free">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>Blank layout - Layouts | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet" />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="~/assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/assets/vendor/css/core.css" />
+    <link rel="stylesheet" href="~/assets/vendor/css/theme-default.css"  />
+    <link rel="stylesheet" href="~/assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="~/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Page CSS -->
+    <!-- Helpers -->
+    <script src="~/assets/vendor/js/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="~/assets/js/config.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+        <div class="container-fluid">
+            <div class="row ">
+                <a class="navbar-brand col-1 " asp-controller="Home"asp-action="Index">خانه<i class="bx bx-home "></i></a>
+                <a class="navbar-brand col-1 " asp-controller="Home" asp-action="ProductsList"> کالا ها<i class="bx bx-list-check "></i></a>
+               @* <a class="navbar-brand col-1 " asp-controller="Home" asp-action="BasketList">سبد خرید <i class="bx bx-shopping-bag "></i></a>
+                <a class="navbar-brand col-1 me-5" asp-controller="Home" asp-action="FactorsList">  فاکتور ها <i class="bx bx-shopping-bag "></i></a>*@
+               
+                <a class="btn btn-success col-2 me-5" asp-controller="Home" asp-action="Register"><i class="bx bx-log-in-circle"></i> ثبت نام</a>
+                <a class="btn btn-outline-danger col-2  me-2"  asp-controller="Home" asp-action="LogOut"><i class="bx bx-log-out-circle"></i> خروج</a>
+                <div class="btn-group col-2 me-5  ">
+                    <button type="button" class="btn btn-primary dropdown-toggle " data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       ورود
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end w-px-300" style="">
+                        <form class="p-4" method="post" >
+                            <div class="mb-3">
+                                <label  class="form-label">آدرس ایمیل</label>
+                                <input type="text" name="email" class="form-control"  placeholder="ایمیل خود را وارد کنید">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleDropdownFormPassword1" class="form-label">گذرواژه</label>
+                                <input type="password" name="password" class="form-control"  placeholder="رمز خود را وارد کنید">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" asp-controller="Home" asp-action="LogInUser">وارد شدن</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </nav>
+    <!-- Content -->
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+           
+        </main>
+    </div>
+
+
+    <!-- / Content -->
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="~/assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="~/assets/vendor/libs/popper/popper.js"></script>
+    <script src="~/assets/vendor/js/bootstrap.js"></script>
+    <script src="~/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="~/assets/vendor/js/menu.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

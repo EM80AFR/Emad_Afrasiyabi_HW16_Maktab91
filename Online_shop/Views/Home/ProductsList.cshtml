@@ -1,0 +1,92 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model List<Online_shop.Models.Product?>
+<div class="d-flex flex-row">
+   
+    @if (ViewBag.currentUser!=null )
+    {
+        <div class="col-2">
+            <a b-mr733n59wp="" class="btn btn-outline-primary " asp-controller="Home" asp-action="CreateProduct">افزودن کالای جدید</a>
+        </div>
+    }
+
+
+    <form method="post" class="mb-5">
+        <div class="d-inline-flex ">
+            <input type="text" class="form-control border-0 shadow-none " name="search" value="@ViewBag.search" placeholder="جستجو..." aria-label="Search...">
+            <button type="submit" class="btn btn-primary " asp-controller="Home" asp-action="ProductsList"><i class="bx bx-search fs-4 "></i></button>
+        </div>
+    </form>
+
+</div>
+<div>
+    <div class="table-responsive ">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="text-center">کد کالا</th>
+            <th class="text-center">نام کالا</th>
+            <th class="text-center">وضعیت</th>
+            <th class="text-center">قیمت</th>
+            <th class="text-center">تعداد</th>
+            <th class="text-center">تاریخ ورود</th>
+            <th class="text-center">آخرین تاریخ خروج</th>
+            @if (ViewBag.currentUser != null)
+            {
+            <th class ="text-center">عملبات ها</th>
+            }
+        </tr>
+        </thead>
+        <tbody class="table-border-bottom-0">
+        @foreach (var item in Model!)
+        {
+            <tr>
+                <td class="text-center"> <strong>@item!.Id</strong></td>
+                <td class="text-center"> <strong>@item.ProductName</strong></td>
+
+                        @if ((item.Qty) > 0)
+                {
+                    <td class="text-center"><span class="badge bg-label-primary me-1">قابل خرید</span></td>
+                }
+                else
+                {
+                    <td class="text-center"><span class="badge bg-label-warning me-1">غیر فعال</span></td>
+                }
+                <td class="text-center"><strong>@item.Price</strong></td>
+                <td class="text-center"><strong>@item.Qty</strong></td>
+                <td class="text-center"><strong>@item.EnterTime</strong></td>
+                <td class="text-center"><strong>@item.ExitTime</strong></td>
+                @if (ViewBag.currentUser != null)
+                {
+                    <td class="text-center row">
+                   
+                        
+                                   @* <a class="btn btn-xs btn-success col-10" asp-controller="Home" asp-action="AddToBasket" asp-route-Id="@item.Id"><i class="bx bx-shopping-bag me-1"></i> افزودن به سبد خرید</a>
+                    
+                              
+                                    <div class="dropdown col-1">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                            <i class="bx bx-dots-vertical-rounded"></i>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" asp-controller="Home" asp-route-Id="@item.Id" asp-action="EditProduct"><i class="bx bx-edit-alt me-1"></i> ویرایش</a>
+                                            <a class="dropdown-item" asp-controller="Home" asp-action="DeleteCheck" asp-route-Id="@item.Id"> <i class="bx bx-trash me-1"></i> حذف</a>
+                                            <a class="dropdown-item" asp-controller="Home" asp-action="Upload" > <i class="bx bxs-photo-album me-1"></i> اضافه کردن عکس</a>
+                                        </div>
+                                    </div>*@
+                                
+                       
+                    </td>
+                }
+                
+            </tr>
+        }
+
+        </tbody>
+
+        
+        
+        <tfoot></tfoot>
+    </table>
+
+</div>
+</div>
