@@ -78,12 +78,32 @@ namespace Online_shop.Services
             {
                 _repository.EditForBasketTable(id);
             }
-            _repository.AddToBasket(id);
+            else
+                _repository.AddToBasket(id);
+
+            
+
         }
 
         public List<CartProductViewModel> GetBasketList()
         {
-            _repository.GetBasketList();
+           return _repository.GetBasketList();
+        }
+
+        public void FinalPurchase()
+        {
+            var id=_repository.CreateFactor();
+            _repository.FinalPurchase(id);
+        }
+
+        public List<Factor> FactorsList()
+        {
+            return _repository.GetFactorList();
+        }
+
+        public List<Product> GetFactorsDetails(int id)
+        {
+            return _repository.GetFactorDetails(id);
         }
     }
 }

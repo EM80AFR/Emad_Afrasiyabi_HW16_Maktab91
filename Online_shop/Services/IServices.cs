@@ -16,5 +16,8 @@ namespace Online_shop.Services
         void Edit(Product product);
         void AddToBasket(int id);
         List<CartProductViewModel> GetBasketList();
+        void FinalPurchase();
+        List<Factor> FactorsList();
+        List<Product> GetFactorsDetails(int id);
     }
 }

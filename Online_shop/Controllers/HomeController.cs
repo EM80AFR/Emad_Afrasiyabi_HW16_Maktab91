@@ -115,28 +115,27 @@ namespace Online_shop.Controllers
 
         public IActionResult BasketList()
         {
-            _services.GetBasketList();
-            return View();
+            return View(_services.GetBasketList());
         }
-        //public IActionResult FactorDetail(string id)
-        //{
-        //    var result = _productRepository.ReturnFactorList(id);
-        //    ViewBag.FactorDate = DataStorage.CurrentUser!.Factors.FirstOrDefault(f => f.Id == id)!.CreateDate!;
-        //    return View(result);
-        //}
-        //public IActionResult FactorsList()
-        //{
-        //    var result = DataStorage.CurrentUser!.Factors;
-        //    return View(result);
-        //}
-        //public IActionResult FinalPurchase()
-        //{
-        //    _productRepository.CreteFactor();
-        //    return RedirectToAction("ProductsList");
-        //}
-        
-        
-        
+        public IActionResult FinalPurchase()
+        {
+            _services.FinalPurchase();
+            return RedirectToAction("ProductsList");
+        }
+        public IActionResult FactorsList()
+        {
+            return View(_services.FactorsList());
+        }
+        public IActionResult FactorDetail(string id)
+        {
+            
+            return View(_services.GetFactorsDetails(int.Parse(id)));
+        }
+
+
+
+
+
         //public IActionResult Exit()
         //{
         //    return View("Index");
@@ -152,10 +151,10 @@ namespace Online_shop.Controllers
         //    _productRepository.AddToBasketMethod(id);
         //     return  RedirectToAction("ProductsList");
         //}
-        
-        
-       
-        
+
+
+
+
         //public IActionResult DeleteCheck(string id)
         //{
 
@@ -171,9 +170,9 @@ namespace Online_shop.Controllers
         //    ViewBag.currentUser = DataStorage.CurrentUser!;
         //    return View( userOrders);
         //}
-       
 
-       
+
+
 
         //public IActionResult Privacy()
         //{

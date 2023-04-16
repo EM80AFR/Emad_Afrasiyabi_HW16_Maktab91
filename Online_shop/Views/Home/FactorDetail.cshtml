@@ -1,0 +1,34 @@
+﻿@model List<Online_shop.Models.Product>
+@{
+
+    var count = 1;
+
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th class="text-center">کد کالا</th>
+                <th class="text-center">نام کالا</th>
+                <th class="text-center">قیمت</th>
+                <th class="text-center">تعداد</th>
+            </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+       
+            
+                @foreach (var item in Model)
+                {
+                    <tr>
+                    <td class="text-center"><strong>@(count++)</strong></td>
+                    <td class="text-center"><strong>@item.ProductName</strong></td>
+                    <td class="text-center"><strong>@item.Price</strong></td>
+                     <td class="text-center"><strong>@item.Qty</strong></td>
+                    </tr>
+                }
+            
+
+            </tbody>
+        </table>
+
+    </div>
+}

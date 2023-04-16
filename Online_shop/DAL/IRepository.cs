@@ -17,6 +17,10 @@ namespace Online_shop.DAL
         int CheckForInsertIntoBasketTable(int productId);
         void EditForBasketTable(int id);
         List<CartProductViewModel> GetBasketList();
+        int CreateFactor();
+        void FinalPurchase(int id);
+        List<Factor> GetFactorList();
+        List<Product> GetFactorDetails(int id);
 
 
     }
