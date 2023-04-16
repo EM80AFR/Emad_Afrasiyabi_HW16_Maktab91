@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using My_App.Store.Demo.Models;
 using Online_shop.Models;
 using Online_shop.Models.ViewModels;
 using Online_shop.Services;
@@ -7,14 +8,10 @@ namespace Online_shop.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly IServices _services;
 
-        public HomeController(ILogger<HomeController> logger, IWebHostEnvironment hostingEnvironment,IServices services)
+        public HomeController(IServices services)
         {
-            _logger = logger;
-            _hostingEnvironment = hostingEnvironment;
             _services = services;
         }
 
@@ -35,9 +32,11 @@ namespace Online_shop.Controllers
             var result = _services.LogInUser(model);
             if (result)
             {
+                ViewBag.Message = "شما با موفقیت وارد شدید!";
+
                 return View("Index");
             }
-            ViewBag.Message = string.Format("کاربر با ایمیل وارد شده در سیستم موجود نمی باشد.");
+            ViewBag.Message = "کاربر با ایمیل وارد شده در سیستم موجود نمی باشد.";
             return View("Index");
         }
 
@@ -105,6 +104,19 @@ namespace Online_shop.Controllers
         {
             _services.Edit(product);
             return RedirectToAction("ProductsList");
+        }
+
+        public IActionResult AddToBasket(string id)
+        {
+            _services.AddToBasket(int.Parse(id));
+
+          return  RedirectToAction("ProductsList");
+        }
+
+        public IActionResult BasketList()
+        {
+            _services.GetBasketList();
+            return View();
         }
         //public IActionResult FactorDetail(string id)
         //{

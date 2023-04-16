@@ -1,4 +1,5 @@
-﻿using Online_shop.Models;
+﻿using My_App.Store.Demo.Models;
+using Online_shop.Models;
 using Online_shop.Models.ViewModels;
 
 namespace Online_shop.Services
@@ -13,5 +14,7 @@ namespace Online_shop.Services
         void CreateProduct(CreateProductViewModel model);
         Product GetById (int id);
         void Edit(Product product);
+        void AddToBasket(int id);
+        List<CartProductViewModel> GetBasketList();
     }
 }

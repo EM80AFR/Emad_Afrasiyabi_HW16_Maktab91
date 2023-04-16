@@ -1,6 +1,8 @@
 ﻿using Online_shop.DAL;
 using Online_shop.Models;
 using Online_shop.Models.ViewModels;
+using System.Reflection;
+using My_App.Store.Demo.Models;
 
 namespace Online_shop.Services
 {
@@ -43,7 +45,7 @@ namespace Online_shop.Services
 
         public void CreateProduct(CreateProductViewModel model)
         {
-            var resultId = _repository.CheckForInsertIntoTable(model.ProductName, model.Price) ;
+            var resultId = _repository.CheckForInsertIntoProductTable(model.ProductName, model.Price) ;
             if (resultId > 0)
             {
                 var resultProduct = _repository.GetById(resultId);
@@ -67,6 +69,21 @@ namespace Online_shop.Services
         public void Edit(Product product)
         {
             _repository.Edit(product);
+        }
+
+        public void AddToBasket(int id)
+        {
+            var resultId = _repository.CheckForInsertIntoBasketTable(id);
+            if (resultId > 0)
+            {
+                _repository.EditForBasketTable(id);
+            }
+            _repository.AddToBasket(id);
+        }
+
+        public List<CartProductViewModel> GetBasketList()
+        {
+            _repository.GetBasketList();
         }
     }
 }

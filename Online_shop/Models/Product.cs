@@ -7,6 +7,6 @@
         public int Qty { get; set; }
         public int Price { get; set; }
         public DateTime EnterTime { get; set; }
-        public DateTime ExitTime { get; set; }
+        public DateTime? ExitTime { get; set; }
     }
 }

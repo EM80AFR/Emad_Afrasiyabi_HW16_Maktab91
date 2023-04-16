@@ -1,4 +1,5 @@
-﻿using Online_shop.Models;
+﻿using My_App.Store.Demo.Models;
+using Online_shop.Models;
 
 namespace Online_shop.DAL
 {
@@ -11,6 +12,12 @@ namespace Online_shop.DAL
         void CreateProduct(string productName, int price, int qty);
         Product GetById(int id);
         void Edit(Product product);
-        int CheckForInsertIntoTable(string productName, int price);
+        int CheckForInsertIntoProductTable(string productName, int price);
+        void AddToBasket(int id);
+        int CheckForInsertIntoBasketTable(int productId);
+        void EditForBasketTable(int id);
+        List<CartProductViewModel> GetBasketList();
+
+
     }
 }
